@@ -13,12 +13,16 @@ app.use(express.static('public'))
 wax.on(hbs.handlebars);
 wax.setLayoutPath('./views/layouts');
 
+const landingRoutes = require('./routes/landing');
+
 // enable forms
 app.use(
     express.urlencoded({
         extended: false
     })
 );
+
+app.use('/', landingRoutes);
 
 // async function main() {
 //     app.get('/', (req, res) => {
@@ -27,10 +31,6 @@ app.use(
 // }
 
 // main();
-
-app.get('/', async function(req,res){
-    res.send("Hello World");
-})
 
 app.listen(3000, () => {
     console.log("Server has started");
