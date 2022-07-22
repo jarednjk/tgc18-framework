@@ -14,6 +14,7 @@ wax.on(hbs.handlebars);
 wax.setLayoutPath('./views/layouts');
 
 const landingRoutes = require('./routes/landing');
+const productRoutes = require('./routes/products');
 
 // enable forms
 app.use(
@@ -23,6 +24,7 @@ app.use(
 );
 
 app.use('/', landingRoutes);
+app.use('/products', productRoutes);
 
 // async function main() {
 //     app.get('/', (req, res) => {
